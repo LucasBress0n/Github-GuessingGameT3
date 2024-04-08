@@ -23,15 +23,21 @@ while (countChance != 4)
     }
     else
     {
-        Console.WriteLine(
-            @"You guessed WRONG....guess again:
-        "
-        );
+        if(userInput>secretNumber)
+        {
+            Console.WriteLine("Your guess is too high, guess lower");
+        }
+        else if(userInput<secretNumber)
+        {
+            Console.WriteLine("Your guess is too low, guess higher");
+        }
+        
         countChance++;
         Console.WriteLine(
-            $@"You're on guess number: ({countChance}. You have {4 - countChance} chances left!");
+            $@"You're on guess number: {countChance}. You have {4 - countChance} chances left!");
 
-        // secretNumber=int.Parse(Console.ReadLine());
+       
     }
 }
 
+// Inform the user if their guess was too high or too low, when they guess incorrectly.
