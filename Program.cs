@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 
 int userDifficultyChoice = 0;
-while (userDifficultyChoice == 0 || userDifficultyChoice > 3)
+while (userDifficultyChoice == 0 || userDifficultyChoice > 5)
 {
     Console.WriteLine(
         @"
@@ -11,6 +11,8 @@ while (userDifficultyChoice == 0 || userDifficultyChoice > 3)
     1. Easy, guesses: 8
     2. Medium, guesses: 6
     3. Hard, guesses: 4
+    4. CHEATER MODE: unlimited guesses
+    5. Exit
     
     Pick a difficulty"
     );
@@ -18,18 +20,24 @@ while (userDifficultyChoice == 0 || userDifficultyChoice > 3)
     switch (userDifficultyChoice)
     {
         case 1:
-            game(8);
+            game(8, false);
             break;
         case 2:
-            game(6);
+            game(6, false);
             break;
         case 3:
-            game(4);
+            game(4, false);
             break;
+        case 4:
+            game(5, true);
+            break;    
     }
 }
 
-void game(int guessesNumber)
+
+
+
+void game(int guessesNumber, bool isCheater)
 {
     Console.WriteLine(
         @"
@@ -59,11 +67,15 @@ Guess the secret number between 1 and 100:"
             {
                 Console.WriteLine("Your guess is too low, guess higher");
             }
-
-            countChance++;
+            
+            if(isCheater == false)
+            {
+                countChance++;
             Console.WriteLine(
                 $@"You're on guess number: {countChance}. You have {guessesNumber - countChance} chances left!"
             );
+
+            }
         }
     }
 }
