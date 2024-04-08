@@ -1,10 +1,8 @@
-﻿// Phase 1
-// The program should...
+﻿// Phase 4
+// The program should be updated to...
 
-// Display a message to the user asking them to guess the secret number.
-// Display a prompt for the user's guess.
-// Take the user's guess as input and save it as a variable.
-// Display the user's guess back to the screen.
+// Display the number of the user's current guess in the prompt. For example, if the user has already guessed one time, the prommpt should say something like Your guess (2)>.
+// End the loop early if the user guesses the correct number.
 
 Console.WriteLine(
     @"
@@ -12,32 +10,28 @@ Wanna play a game?
 Guess the secret number:"
 );
 
-
-
-// The program should be updated to...
-
 int secretNumber = 42;
-int countChance=0;
-while(countChance!=4)
+int countChance = 0;
+while (countChance != 4)
 {
     int userInput = int.Parse(Console.ReadLine()!.Trim());
 
-// Console.WriteLine($"You guessed: {userInput}");
     if (userInput == secretNumber)
     {
         Console.WriteLine("You guessed it right!!");
-        countChance=4;
+        countChance = 4;
     }
     else
     {
-        Console.WriteLine("You guessed WRONG....guess again:");
+        Console.WriteLine(
+            @"You guessed WRONG....guess again:
+        "
+        );
         countChance++;
+        Console.WriteLine(
+            $@"You're on guess number: ({countChance} out of 4)
+        "
+        );
         // secretNumber=int.Parse(Console.ReadLine());
     }
 }
-
-// The program should be updated to...
-
-
-// Give the user four chances to guess the number.
-// Continue to display the success or failure messages as in phase 2
