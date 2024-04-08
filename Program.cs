@@ -12,6 +12,19 @@ Wanna play a game?
 Guess the secret number:"
 );
 
-string userInput = Console.ReadLine()!.Trim();
+int userInput = int.Parse(Console.ReadLine()!.Trim());
 
 Console.WriteLine($"You guessed: {userInput}");
+
+// The program should be updated to...
+
+int secretNumber = 42;
+
+if (userInput == secretNumber)
+{
+    Console.WriteLine("You guessed it right!!");
+}
+else
+{
+    Console.WriteLine("You guessed WRONG....guess again:");
+}
