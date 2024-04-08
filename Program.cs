@@ -1,20 +1,20 @@
-﻿// Phase 4
-// The program should be updated to...
-
-// Display the number of the user's current guess in the prompt. For example, if the user has already guessed one time, the prommpt should say something like Your guess (2)>.
-// End the loop early if the user guesses the correct number.
+﻿
 
 Console.WriteLine(
     @"
 Wanna play a game?
-Guess the secret number:"
+Guess the secret number between 1 and 100:"
 );
-
-int secretNumber = 42;
 int countChance = 0;
+
+Random random = new Random();
+
+int secretNumber = random.Next(1, 101);
+
 while (countChance != 4)
 {
     int userInput = int.Parse(Console.ReadLine()!.Trim());
+
 
     if (userInput == secretNumber)
     {
@@ -29,9 +29,9 @@ while (countChance != 4)
         );
         countChance++;
         Console.WriteLine(
-            $@"You're on guess number: ({countChance} out of 4)
-        "
-        );
+            $@"You're on guess number: ({countChance}. You have {4 - countChance} chances left!");
+
         // secretNumber=int.Parse(Console.ReadLine());
     }
 }
+
